@@ -1,0 +1,67 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/app-layout/app-scroll-effects/effects/waterfall.html">
+<link rel="import" href="../../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../../bower_components/app-layout/app-grid/app-grid-style.html">
+<link rel="import" href="../view-about/view-about.html">
+<link rel="import" href="../view-projects/view-projects.html">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Work+Sans:400,900">
+
+<dom-module id="jessetellis-com-app">
+  <template>
+    <style include="app-grid-style">
+      :host {
+        --app-primary-color: #607D8B;
+        --app-secondary-color: #FFF9C4;
+        --app-grid-columns: 2;
+        --app-grid-item-height: 100px;
+      }
+      app-header {
+        border-bottom: 1px solid var(--app-primary-color);
+      }
+      .title-toolbar {
+        height: 250px;
+        @apply(--layout-center-center);
+      }
+      .title {
+        text-align: center;
+        font-family: 'Work Sans', sans-serif;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+      .title.main {
+        font-size: 50px;
+      }
+      ul {
+        padding: 0;
+        list-style: none;
+      }
+      .item {
+        padding: 10px;
+      }
+    </style>
+
+    <app-header-layout fullbleed>
+      <app-header fixed effects="waterfall">
+        <app-toolbar class="title-toolbar">
+          <div class="title-container">
+            <div class="title main" main-title>Jesse Ellis</div>
+            <div class="title sub">Fullstack Developer</div>
+        </div>
+        </app-toolbar>
+      </app-header>
+      <ul class="app-grid">
+        <li class="item"><view-about></view-about></li>
+        <li class="item"><view-projects></view-projects></li>
+      </ul>
+    </app-header-layout>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'jessetellis-com-app',
+    });
+  </script>
+</dom-module>
