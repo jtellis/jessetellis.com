@@ -54,7 +54,7 @@
             {{item.created}}
           </div>
           <div>
-            <a href="{{item.url}}">Live Demo</a>
+            <a href="{{item.url}}">{{item.type}}</a>
           </div>
         </div>
       </template>
@@ -75,13 +75,22 @@
             title: 'Simon Game',
             description: 'A modern web rendition of the classic Simon game',
             created: 'November-December, 2016',
-            url: 'https://jtellis.github.io/simon-game/'
+            url: 'https://jtellis.github.io/simon-game/',
+            type: 'Live Demo'
           },
           {
             title: 'DeterminedMe',
             description: 'A treelike goal planner',
             created: 'January, 2016',
-            url: 'https://determinedme.herokuapp.com'
+            url: 'https://determinedme.herokuapp.com',
+            type: 'Live Demo'
+          },
+          {
+            title: 'jessetellis.com',
+            description: 'Personal site built with Polymer',
+            created: 'December, 2016-January, 2017',
+            url: 'https://github.com/jtellis/jessetellis.com',
+            type: 'GitHub Repo'
           }
         ]
       }
