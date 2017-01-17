@@ -1,13 +1,19 @@
 {
+  "entrypoint": "index.html",
+  "shell": "src/jessetellis-com-app/jessetellis-com-app.html",
   "fragments": [
+    "src/view-projects/view-projects.html",
     "src/view-about/view-about.html",
-    "src/view-about/view-contact.html",
-    "src/view-about/view-projects.html",
+    "src/view-contact/view-contact.html",
     "src/view-404/view-404.html"
   ],
-  "sourceGlobs": [
+  "sources": [
     "src/**/*",
     "images/**/*",
     "bower.json"
+  ],
+  "extraDependencies": [
+    "manifest.json",
+    "bower_components/webcomponentsjs/webcomponents-lite.min.js"
   ]
 }

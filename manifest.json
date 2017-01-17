@@ -1,6 +1,10 @@
 {
-  "name": "jessetellis-com",
-  "short_name": "jessetellis-com",
-  "start_url": "/",
-  "display": "standalone"
+  "name": "Jesse Ellis",
+  "short_name": "Jesse Ellis",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "theme_color": "#607d8b",
+  "background_color": "#607d8b",
+  "icons": [
+  ]
 }
