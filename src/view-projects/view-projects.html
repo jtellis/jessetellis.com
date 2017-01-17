@@ -16,7 +16,7 @@
         @apply(--layout-center-center);
       }
       paper-tabs {
-        --paper-tabs-container: {
+        --paper-tabs: {
           background: #CFD8DC;
         };
         --paper-tabs-selection-bar-color: {
@@ -38,7 +38,7 @@
       }
     </style>
 
-    <paper-tabs selected="{{selected}}" autoselect>
+    <paper-tabs selected="{{selected}}" autoselect scrollable fit-container>
       <template is="dom-repeat" items="{{projects}}">
         <paper-tab>{{item.title}}</paper-tab>
       </template>
