@@ -1,7 +1,13 @@
 {
   "fragments": [
     "src/view-about/view-about.html",
+    "src/view-about/view-contact.html",
     "src/view-about/view-projects.html",
     "src/view-404/view-404.html"
+  ],
+  "sourceGlobs": [
+    "src/**/*",
+    "images/**/*",
+    "bower.json"
   ]
 }

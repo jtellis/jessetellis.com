@@ -4,42 +4,129 @@
 <link rel="import" href="../../bower_components/app-layout/app-header-layout/app-header-layout.html">
 <link rel="import" href="../../bower_components/app-layout/app-header/app-header.html">
 <link rel="import" href="../../bower_components/app-layout/app-toolbar/app-toolbar.html">
-<link rel="import" href="../../bower_components/app-layout/app-grid/app-grid-style.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
 <link rel="import" href="../view-about/view-about.html">
+<link rel="import" href="../view-contact/view-contact.html">
 <link rel="import" href="../view-projects/view-projects.html">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Work+Sans:400,900">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bungee+Shade">
 
 <dom-module id="jessetellis-com-app">
   <template>
-    <style include="app-grid-style">
+    <style>
       :host {
         --app-primary-color: #607D8B;
         --app-secondary-color: #FFF9C4;
-        --app-grid-columns: 2;
-        --app-grid-item-height: 100px;
+
+        background: var(--app-secondary-color);
+        --app-grid-columns: 1;
+        --app-grid-gutter: 5px;
       }
       app-header {
-        border-bottom: 1px solid var(--app-primary-color);
+        background: rgba(255, 255, 255, 0.95);
+        border-bottom: 1px solid #E65100;
       }
       .title-toolbar {
-        height: 250px;
+        height: 200px;
         @apply(--layout-center-center);
+      }
+      .title-container {
       }
       .title {
         text-align: center;
-        font-family: 'Work Sans', sans-serif;
-        font-weight: 900;
-        text-transform: uppercase;
+        font-family: 'Bungee Shade', cursive;
+        font-weight: 700;
+        color: #E65100;
       }
       .title.main {
-        font-size: 50px;
+        font-size: 5em;
       }
-      ul {
-        padding: 0;
-        list-style: none;
+      .title.sub {
+        font-size: 1em;
       }
-      .item {
-        padding: 10px;
+      .app-layout {
+        @apply(--layout-vertical);
+        @apply(--layout-center);
+      }
+      .app-layout .item {
+        text-align: center;
+        width: 60%;
+        margin: 5px 0;
+      }
+      .app-layout .item:nth-child(1) {
+        margin-top: 0;
+      }
+      paper-card {
+        width: 100%;
+        --paper-card-header: {
+          background: #eeeeee;
+          border-bottom: 1px solid #E65100;
+        };
+        --paper-card-header-text: {
+          font-family: 'Bungee Shade', cursive;
+          text-transform: uppercase;
+          color: #E65100;
+        };
+      }
+      paper-card:nth-child(even) {
+        --paper-card-header: {
+          text-align: right;
+        };
+      }
+
+      @media (min-width: 1300px) {
+        .app-layout .item {
+          width: 800px;
+        }
+      }
+      @media (min-width: 900px) {
+        .title.main {
+          font-size: 4em;
+        }
+        .app-layout .item {
+          width: 800px;
+        }
+      }
+      @media (max-width: 768px) {
+        .title-toolbar {
+          height: 100px;
+        }
+        .title.main {
+          font-size: 3em;
+        }
+        .title.sub {
+          font-size: .75em;
+        }
+        .app-layout .item {
+          width: 100%;
+        }
+      }
+      @media (max-width: 450px) {
+        .title-toolbar {
+          height: 75px;
+        }
+        .title.main {
+          font-size: 2em;
+        }
+        .title.sub {
+          display: none;
+        }
+        .app-layout .item {
+          width: 100%;
+        }
+        @media (max-width: 320px) {
+          .title-toolbar {
+            height: 75px;
+          }
+          .title.main {
+            font-size: 1.75em;
+          }
+          .title.sub {
+            display: none;
+          }
+          .app-layout .item {
+            width: 100%;
+          }
       }
     </style>
 
@@ -52,10 +139,29 @@
         </div>
         </app-toolbar>
       </app-header>
-      <ul class="app-grid">
-        <li class="item"><view-about></view-about></li>
-        <li class="item"><view-projects></view-projects></li>
-      </ul>
+      <div class="app-layout">
+        <div class="item">
+          <paper-card heading="About">
+            <div class="card-content">
+              <view-about></view-about>
+            </div>
+          </paper-card>
+        </div>
+        <div class="item">
+          <paper-card heading="Projects">
+            <div class="card-content">
+              <view-projects></view-projects>
+            </div>
+          </paper-card>
+        </div>
+        <div class="item">
+          <paper-card heading="Contact">
+            <div class="card-content">
+              <view-contact></view-contact>
+            </div>
+          </paper-card>
+        </div>
+      </div>
     </app-header-layout>
   </template>
 

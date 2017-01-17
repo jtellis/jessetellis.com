@@ -1,5 +1,9 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../shared-styles/shared-styles.html">
+<link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/paper-styles/color.html">
 
 <dom-module id="view-projects">
   <template>
@@ -7,14 +11,80 @@
       :host {
         display: block;
       }
+      .project {
+        @apply(--layout-flex);
+        @apply(--layout-center-center);
+      }
+      paper-tabs {
+        --paper-tabs-container: {
+          background: #CFD8DC;
+        };
+        --paper-tabs-selection-bar-color: {
+          #E65100;
+        };
+      }
+      paper-tab {
+        --paper-tab-ink: {
+          #E65100;
+        };
+        font-family: 'Bungee Shade', cursive;
+        color: #E65100;
+      }
+      .project div {
+        margin: 10px 0;
+      }
+      .project div:nth-child(even) {
+        background: #CFD8DC;
+      }
     </style>
 
-  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+    <paper-tabs selected="{{selected}}" autoselect>
+      <template is="dom-repeat" items="{{projects}}">
+        <paper-tab>{{item.title}}</paper-tab>
+      </template>
+    </paper-tabs>
+
+    <iron-pages selected="{{selected}}">
+      <template is="dom-repeat" items="{{projects}}">
+        <div class="project">
+          <div>
+          {{item.description}}
+          </div>
+          <div>
+            {{item.created}}
+          </div>
+          <div>
+            <a href="{{item.url}}">Live Demo</a>
+          </div>
+        </div>
+      </template>
+    </iron-pages>
   </template>
 
   <script>
     Polymer({
-      is: 'view-projects'
+      is: 'view-projects',
+      properties: {
+        selected: {
+          value: 0
+        }
+      },
+      ready: function() {
+        this.projects = [
+          {
+            title: 'Simon Game',
+            description: 'A modern web rendition of the classic Simon game',
+            created: 'November-December, 2016',
+            url: 'https://jtellis.github.io/simon-game/'
+          },
+          {
+            title: 'DeterminedMe',
+            description: 'A treelike goal planner',
+            created: 'January, 2016',
+            url: 'https://determinedme.herokuapp.com'
+          }
+        ]
+      }
     });
   </script>
 </dom-module>

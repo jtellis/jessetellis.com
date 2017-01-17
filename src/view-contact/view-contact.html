@@ -1,0 +1,28 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../shared-styles/shared-styles.html">
+
+<dom-module id="view-contact">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+      }
+    </style>
+
+    <div class="contact">
+      GitHub | <a href="https://github.com/jtellis">jtellis</a>
+    </div>
+    <div class="contact">
+      LinkedIn | <a href="https://www.linkedin.com/in/jessetellis/">jessetellis</a>
+    </div>
+    <div class="contact">
+      Email | jessetellis <i>at</i> gmail <i>dot</i> com
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'view-contact'
+    });
+  </script>
+</dom-module>
